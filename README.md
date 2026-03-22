@@ -1,17 +1,28 @@
-# nivis_flutter
+# Nivis App
 
-A new Flutter project.
+A mobile app for teaching Sorani Kurdish to English speakers.
 
-## Getting Started
+## Goal
+Help users:
+- Learn Sorani script (Arabic-based)
+- Build vocabulary
+- Practice speaking
 
-This project is a starting point for a Flutter application.
+## Tech
+- Flutter (frontend)
+- FastAPI (backend later)
+- AI APIs (later)
 
-A few resources to get you started if this is your first Flutter project:
+## First Milestone
+Build an Alphabet Trainer:
+- Show Sorani letters
+- Tap letter → play sound
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+## How we build
+We use GitHub Copilot to generate code from comments.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Example:
+
+```dart
+// Show a grid of letters
+// When user taps a letter, play audio

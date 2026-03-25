@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:flutter/services.dart';
 
 /// Alphabet learning screen
@@ -6,19 +7,20 @@ import 'package:flutter/services.dart';
 /// - Show Sorani letters
 /// - Tap to play audio
 class AlphabetScreen extends StatelessWidget {
-  const AlphabetScreen({super.key});
+  AlphabetScreen({super.key});
+
+  final player = AudioPlayer();
 
   static const List<String> _letters = <String>['ا', 'ب', 'پ', 'ت', 'ج', 'چ'];
 
   Future<void> _onLetterTap(BuildContext context, String letter) async {
-    // Minimal audio feedback until dedicated per-letter audio files are wired.
-    await SystemSound.play(SystemSoundType.click);
+    print('Tapped letter: $letter');
 
-    if (context.mounted) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Tapped: $letter')),
-      );
-    }
+    await player.setUrl(
+      'https://www.soundjay.com/buttons/sounds/button-09.mp3',
+    );
+
+    await player.play();
   }
 
   @override
@@ -42,7 +44,6 @@ class AlphabetScreen extends StatelessWidget {
             child: InkWell(
               borderRadius: BorderRadius.circular(12),
               onTap: () {
-                print('Tapped letter: $letter');
                 _onLetterTap(context, letter);
                 },
               child: Center(
